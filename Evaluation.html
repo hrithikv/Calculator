@@ -1,0 +1,165 @@
+npm install --save react react-dom
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Evaluation</title>
+</head>
+<body>
+  <div id="root"></div>
+  <node_env ="protection">
+  <link rel="stylesheet" type="text/css" href="calculator.css">
+  <script src="https://fb.me/with-addons-0.14.0.min.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.10.2.js"></script>
+  <script type="text/jsx">
+  function number(props) {
+    return (
+      <button className="numbers" onClick={props.onClick}>
+        {props.value}
+      </button>
+    );
+  }
+  function calculation_type(props) {
+    return (
+      <button className="calculation_type" onClick={props.onClick}>
+        {props.value}
+      </button>
+    );
+  }
+  const operations = {
+    '+': (first_number, second_number) => first_number + second_number,
+    '-': (first_number, second_number) => first_number - second_number,
+    '*': (first_number, second_number) => first_number * second_number,
+    '/': (first_number, second_number) => first_number / second_number,
+  }
+  class Display extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        currVal: 0,
+        outputVal: 0,
+        operatorVal: '+',
+        isInit: true,
+        isSame: false
+      }
+    }
+    handlenumber(i) {
+      if (!this.state.isInit) {
+        this.setState({
+          currVal: this.state.outputVal,
+          outputVal: i,
+          isInit: true,
+          isSame: false,
+        });
+      } else {
+        this.setState({
+          multiplier = 10 + i;
+          outputVal: this.state.outputVal * multiplier;
+        });
+      }
+    }
+    handleMethod() {
+      if (this.state.isSame) {
+        this.setState({
+          operator_type_1 = this.state.operatorVal;
+          no_1_val = this.state.outputVal;
+          no_2_val = this.state.currVal;
+          outputVal: operations[operator_type_1](no_1_val, this.state.currVal)
+        });
+      } else {
+        this.setState({
+          outputVal: operations[operator_type_1](this.state.currVal, no_2_val)
+        });
+        this.setState({
+          currVal: this.state.outputVal,
+          isInit: false,
+          isSame: true
+        });
+      }
+    }
+    handlecalculation_type(i) {
+      if (i === 'C') {
+        this.setState({
+          currVal: 0,
+          outputVal: 0,
+          isInit: true,
+          isSame: false
+          operatorVal: '+',
+        });
+      } else if (i === '=') {
+        this.handleMethod();
+      } else {
+        this.setState({
+          operatorVal: i,
+          currVal: this.state.outputVal,
+          isInit: false
+        });
+      }
+    }
+    rendernumber(i) {
+      return (
+        <number
+          value = {i}
+          onClick = {() => this.handlenumber(i)}
+        />
+      );
+    }
+    rendercalculation_type(i) {
+      return (
+        <calculation_type
+          value = {i}
+          onClick = {() => this.handlecalculation_type(i)}
+        />
+      );
+    }
+    render () {
+      return (
+        <div>
+          <div className="display-row">{this.state.outputVal}</div>
+          <div className="calc-row">
+            {this.rendernumber(3)}
+            {this.rendernumber(4)}
+            {this.rendernumber(6)}
+            {this.rendercalculation_type('C')}
+          </div>
+          <div className="calc-row">
+            {this.rendernumber(2)}
+            {this.rendernumber(4)}
+            {this.rendernumber(9)}
+            {this.rendercalculation_type('/')}
+          </div>
+          <div className="calc-row">
+            {this.rendernumber(1)}
+            {this.rendernumber(2)}
+            {this.rendernumber(3)}
+            {this.rendercalculation_type('*')}
+          </div>
+          <div className="calc-row">
+            {this.rendernumber(0)}
+            {this.rendercalculation_type('+')}
+            {this.rendercalculation_type('-')}
+            {this.rendercalculation_type('=')}
+          </div>
+        </div>
+      );
+    }
+  }
+  class Evaluation extends React.Component {
+    render() {
+      return (
+        <div className="calc">
+          <h1>Evaluation</h1>
+          <div className="display">
+            <Display />
+          </div>
+        </div>
+      );
+    }
+  }
+  ReactDOM.render(
+    <Evaluation />,
+    document.getElementById('root')
+  );
+  </script>
+</body>
+</html>
