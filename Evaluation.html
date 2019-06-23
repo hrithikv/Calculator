@@ -116,25 +116,25 @@ npm install --save react react-dom
       return (
         <div>
           <div className="display-row">{this.state.outputVal}</div>
-          <div className="calc-row">
+          <div className="eval-row">
             {this.rendernumber(3)}
             {this.rendernumber(4)}
             {this.rendernumber(6)}
             {this.rendercalculation_type('C')}
           </div>
-          <div className="calc-row">
+          <div className="eval-row">
             {this.rendernumber(2)}
             {this.rendernumber(4)}
             {this.rendernumber(9)}
             {this.rendercalculation_type('/')}
           </div>
-          <div className="calc-row">
+          <div className="eval-row">
             {this.rendernumber(3)}
             {this.rendernumber(7)}
             {this.rendernumber(2)}
             {this.rendercalculation_type('*')}
           </div>
-          <div className="calc-row">
+          <div className="eval-row">
             {this.rendernumber(0)}
             {this.rendercalculation_type('+')}
             {this.rendercalculation_type('-')}
@@ -147,7 +147,7 @@ npm install --save react react-dom
   class Evaluation extends React.Component {
     render() {
       return (
-        <div className="calc">
+        <div className="eval">
           <h1>Evaluation</h1>
           <div className="display">
             <Display />
