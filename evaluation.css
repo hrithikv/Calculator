@@ -1,13 +1,13 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  background-color: #7aadff;
+  font: 14px "PT Sans", Carme, sans-serif;
+  background-color: #90EE90;
 }
 
 h1 {
   height: 5vh;
   font-size: 40px;
   margin-top: 5vh;
-  margin-bottom: 7vh;
+  margin-bottom: 5px;
   text-align: center;
 }
 
@@ -17,31 +17,30 @@ h1 {
 }
 
 .display-row {
-  height: 5vh;
-  width: 60vw;
-  margin: auto;
-  background-color: #3f3f3f;
+  height: 100%;
+  width: 35px;
+  background-color: white;
   color: white;
-  text-align: center;
+  text-align: left;
   align-items: center;
   font-size: 40px;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .operands {
-  background-color: #dee0e2;
-  border-color: #777777;
+  background-color: #A4C2F4;
+  border-color: #f2f2f2;
   outline: none;
 }
 
 .operands:active {
-  background-color: #c7c8c9;
+  background-color: #A4C2F4;
 }
 
 .operator {
-  background-color: #ff9347;
-  border-color: #777777;
+  background-color: #90EE90;
+  border-color: #f2f2f2;
   outline: none;
 }
 
@@ -50,9 +49,9 @@ h1 {
 }
 
 button {
-	border-radius: 2px;
-  height: 15vh;
-  width: 15vw;
-	text-align: center;
+  border-radius: 2px;
+  height: 13px !important;
+  width: 27px !important;
+  text-align: justify;
   font-size: 30px;
  }
